@@ -312,7 +312,7 @@ function createScatterPlot(
 // Update pattern with transitions
 function update() {
 
-    // Apply a slight transformation to each data point chat
+    // Apply a slight transformation to each data point 
     data.forEach(d => {
         d.streams *= (0.95 + Math.random() * 0.1); // Adjust streams by ±5%
         d.reach *= (0.95 + Math.random() * 0.1);   // Adjust reach by ±5%
