@@ -1,0 +1,222 @@
+/* Spotify Brand Colors and Variables */
+:root {
+    --spotify-green: #1DB954;
+    --spotify-black: #191414;
+    --spotify-white: #FFFFFF;
+    --spotify-gray: #B3B3B3;
+    --error-red: #E22134;
+    --card-bg: #FFFFFF;
+    --text-primary: #191414;
+    --text-secondary: #535353;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Circular Std', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #F8F8F8;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.spotify-logo {
+    height: 40px;
+    object-fit: contain;
+}
+
+.controlsS {
+    display: flex;
+    gap: 15px;
+}
+
+.controlsB {
+    display: flex;
+    gap: 15px;
+}
+
+.controlsP {
+    display: flex;
+    gap: 15px;
+}
+
+/* Buttons and Controls */
+button, select {
+    padding: 8px 16px;
+    border: 2px solid var(--spotify-green);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--spotify-green);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover, select:hover {
+    background: var(--spotify-green);
+    color: white;
+}
+
+/* Visualization Grid */
+.visualization-grid {
+    display: flex;
+    flex-direction: column;  /* Stack items vertically */
+    align-items: center; /* Center them horizontally */
+    gap: 20px; /* Adds spacing between charts */
+    margin-top: 20px;
+}
+
+/* Visualization Cards */
+.visualization-card {
+    width: 90%;  /* Adjust width to fit screen */
+    max-width: 1300px; /* Limit max width */
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    
+}
+
+.visualization-card h2 {
+    display: block !important;; /* Ensures it takes up space */
+    font-size: 18px;
+    font-weight: bold;
+    color: #333 !important; /* Ensure color is not blending with the background */
+    margin: 10px 0;
+    padding: 10px;
+    z-index: 10;
+}
+
+.viz-controls {
+    display: flex;         /* Arrange buttons in a row */
+    justify-content: flex-start; /* Align buttons to the left */
+    gap: 10px;             /* Space between buttons */
+    padding: 10px;         /* Add padding for spacing */
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--spotify-gray);
+    border-top: 4px solid var(--spotify-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.error-message {
+    display: none;
+    background: rgba(226, 33, 52, 0.1);
+    color: var(--error-red);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    border: 1px solid var(--error-red);
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 0.9rem;
+    max-width: 200px;
+    z-index: 1000;
+}
+
+/* D3 Specific Styles */
+.axis path,
+.axis line {
+    stroke: var(--spotify-gray);
+}
+
+.axis text {
+    fill: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .visualization-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .controls {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .visualization-card {
+        overflow-x: auto;
+    }
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --card-bg: #282828;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B3B3B3;
+    background-color: #121212;
+}
+
+/* SVG Elements */
+.visualization svg {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+}

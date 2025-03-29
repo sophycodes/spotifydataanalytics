@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Spotify Logo-->
+    <img id="spotify-logo" src="SpotifyLogo.svg" alt="Spotify Logo">
+    <title>Spotify Music Analytics Dashboard</title>
+    
+    <!-- D3.js Library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <h1>Spotify Music Analytics Dashboard</h1>
+       
+    </header>
+
+
+    <div class="dashboard-container">
+        <div id="dashboard" class="visualization-grid">
+            
+            <!-- Scatter Plot Card -->
+            <div class="visualization-card">
+                <h2>Streams vs Playlist Reach</h2>
+                <div class="viz-controls" id ="controlsS"> </div>
+                <div id="scatterPlot"></div>
+            </div>
+    
+            <!-- Top Artists Bar Chart Card -->
+            <div class="visualization-card">
+                <h2>Top Artists by Streams</h2>
+                <div class="viz-controls" id ="controlsB"></div>
+                <div id="topArtists"></div>
+            </div>
+    
+            <!-- Platform Comparison Chart Card -->
+            <div class="visualization-card">
+                <h2>Platform Comparison</h2>
+                <div class="viz-controls" id ="controlsP"></div>
+                <div id="platformComparison"></div>
+            </div>
+    
+        </div>
+    </div>
+    
+
+    <script src="app.js"></script>
+  
+
+</body>
+</html>
